@@ -64,6 +64,9 @@ class MBPlayer:NSObject {
     var currentState:MPPlayerState = .Initial
     var currentMediaDuration:MPPlayerMediaDuration = .Invalid
     var currentPlayheadTime:Double = 0.0
+    
+    private var periodicTimeObserverHandle:AnyObject?
+    
     var currentMediaInfo:MBPlayerMediaInfo? {
         willSet {
             switch newValue {
@@ -90,8 +93,13 @@ class MBPlayer:NSObject {
     private func prepareForPlayback(mediaInfo:MBPlayerMediaInfo) {
         if let internalPlayer:AVPlayer = internalPlayer {
             internalPlayer.pause()
+            if let periodicTimeObserverHandle = periodicTimeObserverHandle {
+                internalPlayer.removeTimeObserver(periodicTimeObserverHandle)
+            }
+            periodicTimeObserverHandle = nil
         }
         currentPlayerItem = nil
+        
         internalPlayer = nil
         currentPlayerItem = AVPlayerItem(URL: mediaInfo.streamURL)
         currentPlayerItem?.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
@@ -100,6 +108,11 @@ class MBPlayer:NSObject {
         internalPlayer = AVPlayer(playerItem: currentPlayerItem)
         internalPlayer!.addObserver(self, forKeyPath: "status", options: NSKeyValueObservingOptions.New, context: nil)
         internalPlayer!.addObserver(self, forKeyPath: "rate", options: NSKeyValueObservingOptions.New, context: nil)
+        let interval = CMTimeMakeWithSeconds(1, 1)
+        periodicTimeObserverHandle = internalPlayer?.addPeriodicTimeObserverForInterval(interval, queue: dispatch_get_main_queue()) { [weak self] (time:CMTime) in
+            self?.currentPlayheadTime = CMTimeGetSeconds(time)
+            println("Current playhead time \(self?.currentPlayheadTime)")
+        }
         view.playerLayer.player = internalPlayer!
     }
     
