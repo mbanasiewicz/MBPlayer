@@ -10,9 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    let player:MBPlayer = MBPlayer()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        view.addSubview(player.view)
+        player.view.setTranslatesAutoresizingMaskIntoConstraints(false)
+        let views = ["playerView":player.view]
+        let xConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[playerView]|", options: .AlignAllTop, metrics: nil, views: views)
+        let yConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(20)-[playerView(200)]", options: .AlignAllTop, metrics: nil, views: views)
+        self.view.addConstraints(xConstraints)
+        self.view.addConstraints(yConstraints)
+        player.playVideoAtURL(NSURL(string: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8")!)
+
     }
 
     override func didReceiveMemoryWarning() {

@@ -13,6 +13,9 @@
 		34FE648E1B9F350900E4C3B7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34FE648D1B9F350900E4C3B7 /* Images.xcassets */; };
 		34FE64911B9F350900E4C3B7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34FE648F1B9F350900E4C3B7 /* LaunchScreen.xib */; };
 		34FE649D1B9F350900E4C3B7 /* MBPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE649C1B9F350900E4C3B7 /* MBPlayerTests.swift */; };
+		34FE64A71B9F352E00E4C3B7 /* MBPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE64A61B9F352E00E4C3B7 /* MBPlayer.swift */; };
+		34FE64A91B9F354D00E4C3B7 /* MBPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE64A81B9F354D00E4C3B7 /* MBPlayerView.swift */; };
+		34FE64AB1B9F35D900E4C3B7 /* MBPlayerViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34FE64AA1B9F35D900E4C3B7 /* MBPlayerViewTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		34FE64961B9F350900E4C3B7 /* MBPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MBPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		34FE649B1B9F350900E4C3B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		34FE649C1B9F350900E4C3B7 /* MBPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPlayerTests.swift; sourceTree = "<group>"; };
+		34FE64A61B9F352E00E4C3B7 /* MBPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPlayer.swift; sourceTree = "<group>"; };
+		34FE64A81B9F354D00E4C3B7 /* MBPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPlayerView.swift; sourceTree = "<group>"; };
+		34FE64AA1B9F35D900E4C3B7 /* MBPlayerViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBPlayerViewTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +89,8 @@
 				34FE648D1B9F350900E4C3B7 /* Images.xcassets */,
 				34FE648F1B9F350900E4C3B7 /* LaunchScreen.xib */,
 				34FE64841B9F350900E4C3B7 /* Supporting Files */,
+				34FE64A61B9F352E00E4C3B7 /* MBPlayer.swift */,
+				34FE64A81B9F354D00E4C3B7 /* MBPlayerView.swift */,
 			);
 			path = MBPlayer;
 			sourceTree = "<group>";
@@ -100,6 +108,7 @@
 			children = (
 				34FE649C1B9F350900E4C3B7 /* MBPlayerTests.swift */,
 				34FE649A1B9F350900E4C3B7 /* Supporting Files */,
+				34FE64AA1B9F35D900E4C3B7 /* MBPlayerViewTests.swift */,
 			);
 			path = MBPlayerTests;
 			sourceTree = "<group>";
@@ -212,8 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FE64A91B9F354D00E4C3B7 /* MBPlayerView.swift in Sources */,
 				34FE64891B9F350900E4C3B7 /* ViewController.swift in Sources */,
 				34FE64871B9F350900E4C3B7 /* AppDelegate.swift in Sources */,
+				34FE64A71B9F352E00E4C3B7 /* MBPlayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +232,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34FE64AB1B9F35D900E4C3B7 /* MBPlayerViewTests.swift in Sources */,
 				34FE649D1B9F350900E4C3B7 /* MBPlayerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
