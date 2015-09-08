@@ -22,10 +22,20 @@ class ViewController: UIViewController {
         let views = ["playerView":player.view]
         let xConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[playerView]|", options: .AlignAllTop, metrics: nil, views: views)
         let yConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|-(20)-[playerView(200)]", options: .AlignAllTop, metrics: nil, views: views)
-        self.view.addConstraints(xConstraints)
-        self.view.addConstraints(yConstraints)
+        view.addConstraints(xConstraints)
+        view.addConstraints(yConstraints)
         player.playVideoAtURL(NSURL(string: "http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8")!)
+        player.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: Selector("handlePlayerViewTap")))
 
+    }
+    
+    func handlePlayerViewTap() {
+        if player.playing {
+            player.pause()
+        } else {
+            player.play()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
